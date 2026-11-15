@@ -83,6 +83,16 @@ This document is a checklist for rebuilding a new project from an `InitialProjec
      Both commands should return no results.
    - Confirm generated artifacts (APKs, bundles) use the new identifiers by inspecting `build/outputs` if necessary.
 
+## Updating the template
+
+`InitialProjectStructure.json` is a snapshot of [kmp-template-impl](https://github.com/matsumo0922/kmp-template-impl). After changing the implementation there, sync the JSON from a sibling checkout:
+
+```bash
+python3 .codex/skills/update-initial-project-structure/scripts/update_initial_project_structure.py --since <impl-commit-of-last-sync>
+```
+
+The full procedure is described in the [`update-initial-project-structure` skill](.codex/skills/update-initial-project-structure/SKILL.md).
+
 ## Notes
 
 - Keep `InitialProjectStructure.json` out of version control if it is only a bootstrap artifact.
